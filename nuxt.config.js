@@ -39,12 +39,19 @@ module.exports = {
     '@nuxtjs/axios',
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt'
+    // '@nuxtjs/router'
   ],
   /*
   ** Axios module configuration
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
+    baseURL: 'http://localhost:3000',
+    browserBaseURL: 'http://localhost:3000',
+    proxy: true
+  },
+  proxy: {
+    '/rs/': { target: 'http://localhost:18080', pathRewrite: { '^/rs/': '' } }
   },
 
   /*
