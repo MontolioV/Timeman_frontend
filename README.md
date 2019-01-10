@@ -1,6 +1,6 @@
 # Timeman_frontend
 
-> My wicked Nuxt.js project
+Frontend for Timeman project. 
 
 ## Build Setup
 
@@ -18,5 +18,3 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
-
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
