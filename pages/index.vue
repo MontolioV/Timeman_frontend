@@ -23,18 +23,17 @@
 </template>
 
 <script>
-import Logo from '~/components/Logo'
+import Logo from '~/components/Logo';
 
 export default {
   components: {
-    Logo
-  }
-}
+    Logo,
+  },
+};
 </script>
 
 <style>
 .container {
-  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -10,19 +10,19 @@
 </template>
 
 <script>
-import User from './User'
+import User from './User';
 export default {
   name: 'Users',
   components: {
-    User
+    User,
   },
   props: {
     users: {
       type: Array,
-      required: true
-    }
-  }
-}
+      required: true,
+    },
+  },
+};
 </script>
 
 <style scoped>

@@ -1,18 +1,19 @@
 <template>
-  <div>
+  <div class="page-container d-flex flex-column">
     <Navbar/>
-    <nuxt/>
+    <nuxt class="flex-fill"/>
+    <p>footer</p>
   </div>
 </template>
 
 <script>
-import Navbar from '~/components/Navbar'
+import Navbar from '~/components/Navbar';
 
 export default {
   components: {
-    Navbar
-  }
-}
+    Navbar,
+  },
+};
 </script>
 <style>
 html {
@@ -61,5 +62,8 @@ html {
 .button--grey:hover {
   color: #fff;
   background-color: #35495e;
+}
+.page-container {
+  min-height: 100vh;
 }
 </style>
