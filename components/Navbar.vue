@@ -23,14 +23,15 @@
       class="collapse navbar-collapse order-3">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <nuxt-link
-            :to="{name:'index'}"
-            class="nav-link">Login</nuxt-link>
+          <p style="color: red">{{ authenticated }}</p>
         </li>
         <li class="nav-item active">
-          <nuxt-link
-            :to="{name:'index'}"
-            class="nav-link">Logout</nuxt-link>
+          <button
+            @click="login">Login</button>
+        </li>
+        <li class="nav-item active">
+          <button
+            @click="logout">Logout</button>
         </li>
       </ul>
     </div>
@@ -38,8 +39,36 @@
 </template>
 
 <script>
+import auth0 from '~/assets/auth/auth0Service.js';
+
 export default {
   name: 'Navbar',
+  data() {
+    return {
+      authenticated: auth0.authenticated,
+    };
+  },
+  created() {
+    auth0.authNotifier.on('authChange', authState => {
+      this.authenticated = authState.authenticated;
+    });
+
+    if (auth0.getAuthenticatedFlag() === 'true') {
+      console.log('auth0.getAuthenticatedFlag()');
+      auth0.renewSession();
+      console.log('this.authenticated ' + this.authenticated);
+      console.log('authState.authenticated ' + auth0.authenticated);
+    }
+  },
+  methods: {
+    login() {
+      auth0.login();
+      this.$router.push('/');
+    },
+    logout() {
+      auth0.logout();
+    },
+  },
 };
 </script>
 

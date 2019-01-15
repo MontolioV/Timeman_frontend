@@ -14,7 +14,7 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    script: [{ src: 'https://cdn.auth0.com/js/auth0/9.9.0/auth0.min.js' }],
+    // script: [{ src: 'https://cdn.auth0.com/js/auth0/9.9.0/auth0.min.js' }],
   },
 
   /*
@@ -30,7 +30,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: [],
+  plugins: ['~/plugins/contextInjector.js'],
 
   /*
   ** Nuxt.js modules
@@ -59,7 +59,7 @@ module.exports = {
   ** Middleware
   */
   router: {
-    middleware: 'authCheck',
+    // middleware: 'authCheck',
   },
 
   /*
