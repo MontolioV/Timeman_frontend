@@ -10,13 +10,8 @@
 </template>
 
 <script>
-import auth0Service from '~/assets/auth/auth0Service.js';
-
 export default {
   name: 'AuthCallback',
-  created() {
-    auth0Service.handleAuthentication();
-  },
 };
 </script>
 

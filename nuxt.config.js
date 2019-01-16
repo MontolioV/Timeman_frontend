@@ -30,7 +30,7 @@ module.exports = {
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['~/plugins/contextInjector.js'],
+  plugins: [],
 
   /*
   ** Nuxt.js modules
@@ -41,6 +41,7 @@ module.exports = {
     // Doc: https://bootstrap-vue.js.org/docs/
     'bootstrap-vue/nuxt',
     // '@nuxtjs/router'
+    '@nuxtjs/auth',
   ],
   /*
   ** Axios module configuration
@@ -53,6 +54,25 @@ module.exports = {
   },
   proxy: {
     '/rs/': { target: 'http://localhost:18080', pathRewrite: { '^/rs/': '' } },
+  },
+  /*
+  ** Auth module configuration
+  */
+  auth: {
+    redirect: {
+      login: '/auth/redirect',
+      callback: '/auth/cb',
+      logout: '/',
+      home: '/',
+    },
+    resetOnError: true,
+    rewriteRedirects: true,
+    strategies: {
+      auth0: {
+        domain: 'timeman.auth0.com',
+        client_id: 'PsEsUB705UNm8ovl3BqD8ZbeQpNn13Nu',
+      },
+    },
   },
 
   /*

@@ -8,10 +8,15 @@
       id="navbarRouting"
       class="collapse navbar-collapse order-1">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
+        <li class="nav-item">
           <nuxt-link
             :to="{name:'users'}"
             class="nav-link">Users</nuxt-link>
+        </li>
+        <li class="nav-item">
+          <nuxt-link
+            :to="{name:'private'}"
+            class="nav-link">Private</nuxt-link>
         </li>
       </ul>
     </div>
@@ -23,7 +28,7 @@
       class="collapse navbar-collapse order-3">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item active">
-          <p style="color: red">{{ authenticated }}</p>
+          <p style="color: red">{{ isLogged }}</p>
         </li>
         <li class="nav-item active">
           <button
@@ -39,34 +44,19 @@
 </template>
 
 <script>
-import auth0 from '~/assets/auth/auth0Service.js';
-
 export default {
   name: 'Navbar',
-  data() {
-    return {
-      authenticated: auth0.authenticated,
-    };
-  },
-  created() {
-    auth0.authNotifier.on('authChange', authState => {
-      this.authenticated = authState.authenticated;
-    });
-
-    if (auth0.getAuthenticatedFlag() === 'true') {
-      console.log('auth0.getAuthenticatedFlag()');
-      auth0.renewSession();
-      console.log('this.authenticated ' + this.authenticated);
-      console.log('authState.authenticated ' + auth0.authenticated);
-    }
+  computed: {
+    isLogged() {
+      return this.$auth.loggedIn;
+    },
   },
   methods: {
     login() {
-      auth0.login();
-      this.$router.push('/');
+      this.$auth.loginWith('auth0');
     },
     logout() {
-      auth0.logout();
+      this.$auth.logout();
     },
   },
 };

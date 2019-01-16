@@ -1,4 +1,4 @@
-import auth from './modules/auth/module';
+import test from './modules/test/module';
 export default {
-  Auth: auth,
+  test: test,
 };
