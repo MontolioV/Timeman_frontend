@@ -73,6 +73,7 @@ module.exports = {
         client_id: 'PsEsUB705UNm8ovl3BqD8ZbeQpNn13Nu',
       },
     },
+    plugins: ['~/plugins/auth.js'],
   },
 
   /*
