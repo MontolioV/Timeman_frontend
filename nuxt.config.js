@@ -60,7 +60,7 @@ module.exports = {
   */
   auth: {
     redirect: {
-      login: '/auth/redirect',
+      login: '/auth/redirect-to-auth',
       callback: '/auth/cb',
       logout: '/',
       home: '/',

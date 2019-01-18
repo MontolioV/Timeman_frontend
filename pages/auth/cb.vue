@@ -10,8 +10,15 @@
 </template>
 
 <script>
+import auth0 from '~/assets/auth0Impl';
+
 export default {
   name: 'AuthCallback',
+  created() {
+    if (auth0.checkForEmailError()) {
+      this.$router.push('email-not-verified');
+    }
+  },
 };
 </script>
 

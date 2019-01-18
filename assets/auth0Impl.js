@@ -13,6 +13,16 @@ class Auth0Impl {
   logout() {
     this.webAuth.logout();
   }
+
+  checkForEmailError() {
+    let result = false;
+    this.webAuth.parseHash({}, function(err, authResult) {
+      result =
+        err &&
+        err.errorDescription === 'Please verify your email before logging in.';
+    });
+    return result;
+  }
 }
 
 export default new Auth0Impl();
