@@ -1,4 +1,5 @@
 const pkg = require('./package');
+const WebpackShellPlugin = require('webpack-shell-plugin');
 
 module.exports = {
   mode: 'spa',
@@ -14,7 +15,6 @@ module.exports = {
       { hid: 'description', name: 'description', content: pkg.description },
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
-    // script: [{ src: 'https://cdn.auth0.com/js/auth0/9.9.0/auth0.min.js' }],
   },
 
   /*
@@ -59,6 +59,14 @@ module.exports = {
   ** Auth module configuration
   */
   auth: {
+    strategies: {
+      auth0: {
+        domain: 'timeman.auth0.com',
+        client_id: 'PsEsUB705UNm8ovl3BqD8ZbeQpNn13Nu',
+        audience: 'https://montoliov.ml/rs',
+        scope: 'openid profile email crud:self',
+      },
+    },
     redirect: {
       login: '/auth/redirect-to-auth',
       callback: '/auth/cb',
@@ -67,12 +75,6 @@ module.exports = {
     },
     resetOnError: true,
     rewriteRedirects: true,
-    strategies: {
-      auth0: {
-        domain: 'timeman.auth0.com',
-        client_id: 'PsEsUB705UNm8ovl3BqD8ZbeQpNn13Nu',
-      },
-    },
     plugins: ['~/plugins/auth.js'],
   },
 
@@ -100,6 +102,13 @@ module.exports = {
           exclude: /(node_modules)/,
         });
       }
+
+      config.plugins.push(
+        new WebpackShellPlugin({
+          onBuildStart: ['node fix_nuxt_auth.js'],
+          onBuildEnd: [],
+        })
+      );
     },
   },
 };
