@@ -1,4 +1,4 @@
-import test from './modules/test/module';
+// import test from './modules/test/module';
 export default {
-  test: test,
+  // test: test,
 };

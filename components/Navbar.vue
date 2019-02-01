@@ -10,8 +10,8 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <nuxt-link
-            :to="{name:'users'}"
-            class="nav-link">Users</nuxt-link>
+            :to="{name:'timers'}"
+            class="nav-link">Timers</nuxt-link>
         </li>
         <li class="nav-item">
           <nuxt-link
