@@ -48,6 +48,7 @@ module.exports = {
     'bootstrap-vue/nuxt',
     // '@nuxtjs/router'
     '@nuxtjs/auth',
+    'nuxt-fontawesome',
   ],
   /*
   ** Axios module configuration
@@ -82,6 +83,15 @@ module.exports = {
     resetOnError: true,
     rewriteRedirects: true,
     plugins: ['~/plugins/auth.js'],
+  },
+
+  fontawesome: {
+    imports: [
+      {
+        set: '@fortawesome/free-solid-svg-icons',
+        icons: ['fas'],
+      },
+    ],
   },
 
   /*

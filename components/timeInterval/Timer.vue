@@ -24,8 +24,8 @@
     </div>
     <b-button
       v-if="!timeInterval.end"
-      variant="primary"
-      block="true"
+      :block="true"
+      variant="success"
       @click="stopThisTimer">Stop timer</b-button>
   </div>
 </template>

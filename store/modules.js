@@ -1,4 +1,4 @@
-// import test from './modules/test/module';
+import intervals from './modules/intervals/module';
 export default {
-  // test: test,
+  Intervals: intervals,
 };

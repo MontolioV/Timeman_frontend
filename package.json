@@ -14,6 +14,7 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@fortawesome/free-solid-svg-icons": "^5.7.0",
     "@nuxtjs/auth": "4.5.3",
     "@nuxtjs/axios": "^5.3.6",
     "acorn": "^6.0.5",
@@ -26,6 +27,7 @@
     "moment": "^2.24.0",
     "node-sass": "^4.11.0",
     "nuxt": "^2.0.0",
+    "nuxt-fontawesome": "^0.4.0",
     "replace-in-file": "^3.4.3",
     "sass-loader": "^7.1.0",
     "vuex": "^3.0.1",
