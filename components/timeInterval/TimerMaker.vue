@@ -20,7 +20,7 @@
           <b-btn
             class="float-right"
             variant="primary"
-            @click="createTimeInterval">
+            @click="createInterval(newTimeInterval)">
             Start
           </b-btn>
         </div>
@@ -32,6 +32,7 @@
 <script>
 import TagManager from '../TagManager';
 import moment from 'moment';
+import { mapActions } from 'vuex';
 export default {
   name: 'TimeIntervalStarter',
   components: { TagManager },
@@ -47,11 +48,9 @@ export default {
     };
   },
   methods: {
-    async createTimeInterval() {
-      console.log('QWE');
-      await this.$axios.post('/rs/intervals', this.newTimeInterval);
-      console.log('QWE');
-    },
+    ...mapActions({
+      createInterval: 'Intervals/createInterval',
+    }),
   },
 };
 </script>

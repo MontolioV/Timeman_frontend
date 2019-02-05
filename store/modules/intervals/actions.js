@@ -1,5 +1,5 @@
 import {
-  CLOSE_INTERVAL,
+  REPLACE_INTERVAL,
   CREATE_INTERVAL,
   DELETE_INTERVAL,
   SET_INTERVALS,
@@ -13,14 +13,27 @@ export default {
   },
 
   createInterval({ commit }, timeInterval) {
-    commit(CREATE_INTERVAL, timeInterval);
-  },
-
-  deleteInterval({ commit }, id) {
-    commit(DELETE_INTERVAL, id);
+    this.$axios
+      .post('/rs/intervals', timeInterval)
+      .then(res => {
+        commit(CREATE_INTERVAL, res.data);
+      })
+      .catch(reason => console.log(reason));
   },
 
   closeInterval({ commit }, id) {
-    commit(CLOSE_INTERVAL, id);
+    this.$axios
+      .patch(`/rs/intervals/${id}/close`)
+      .then(res => {
+        commit(REPLACE_INTERVAL, res.data);
+      })
+      .catch(reason => console.log(reason));
+  },
+
+  deleteInterval({ commit }, id) {
+    this.$axios
+      .delete(`/rs/intervals/${id}`)
+      .then(() => commit(DELETE_INTERVAL, id))
+      .catch(reason => console.log(reason));
   },
 };

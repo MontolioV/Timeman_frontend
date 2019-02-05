@@ -50,6 +50,14 @@ export default {
   },
   methods: {
     addTag() {
+      if (!this.tagInput) {
+        return;
+      }
+      this.tagInput = this.tagInput.trim();
+      if (!this.tagInput) {
+        return;
+      }
+
       const exists = this.tagsArr.find(elem => elem === this.tagInput);
       if (!exists) {
         this.tagsArr.push(this.tagInput);
