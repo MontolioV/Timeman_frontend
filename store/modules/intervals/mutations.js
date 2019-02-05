@@ -4,7 +4,6 @@ import {
   DELETE_INTERVAL,
   SET_INTERVALS,
 } from './mutation-types';
-import Vue from 'vue';
 
 export default {
   [SET_INTERVALS](state, timeIntervals) {
@@ -17,9 +16,7 @@ export default {
     const index = state.timeIntervals.findIndex(
       value => value._id === timeInterval._id
     );
-    // TODO: 05.02.19 Make reactive replacement.
-    // Vue.set(state, index, timeInterval);
-    // state.timeIntervals[index] = timeInterval;
+    state.timeIntervals[index] = timeInterval;
   },
   [DELETE_INTERVAL](state, id) {
     const index = state.timeIntervals.findIndex(value => value._id === id);

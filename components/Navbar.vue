@@ -13,11 +13,6 @@
             :to="{name:'timers'}"
             class="nav-link">Timers</nuxt-link>
         </li>
-        <li class="nav-item">
-          <nuxt-link
-            :to="{name:'private'}"
-            class="nav-link">Private</nuxt-link>
-        </li>
       </ul>
     </div>
     <div

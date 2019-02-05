@@ -12,6 +12,7 @@ import TimeIntervalStarter from '../components/timeInterval/TimerMaker';
 export default {
   name: 'Timers',
   components: { TimeIntervalStarter, TimersList },
+  middleware: 'auth',
   computed: {
     ...mapGetters({
       timeIntervals: 'Intervals/getIntervals',
