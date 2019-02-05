@@ -27,11 +27,16 @@
       :block="true"
       variant="success"
       @click="stopThisTimer">Stop timer</b-button>
+    <b-button
+      :block="true"
+      variant="danger"
+      @click="deleteThisTimer">Delete timer</b-button>
   </div>
 </template>
 
 <script>
 import moment from 'moment';
+import { mapActions } from 'vuex';
 export default {
   name: 'TimeInterval',
   props: {
@@ -59,11 +64,18 @@ export default {
     },
   },
   methods: {
+    ...mapActions({
+      closeInterval: 'Intervals/closeInterval',
+      deleteInterval: 'Intervals/deleteInterval',
+    }),
     tagRouting(tag) {
       this.$router.push({ path: 'timers', query: { tag: tag } });
     },
     stopThisTimer() {
-      console.log(this.timeInterval._id);
+      this.closeInterval(this.timeInterval._id);
+    },
+    deleteThisTimer() {
+      this.deleteInterval(this.timeInterval._id);
     },
     formatDuration(durationInMs) {
       const DAY_IN_MS = 86400000;
