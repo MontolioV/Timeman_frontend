@@ -1,42 +1,42 @@
 <template>
-  <section class="container">
+  <section class="container d-flex flex-column align-items-center justify-content-center">
     <div>
-      <logo/>
-      <h1 class="title">
-        Timeman_frontend
-      </h1>
-      <h2 class="subtitle">
-        My wicked Nuxt.js project
-      </h2>
-      <div class="links">
+      <div class="titles d-flex flex-column align-items-center justify-content-center">
+        <h1
+          class="title">
+          Timeman
+        </h1>
+        <h2 class="subtitle">
+          for time management
+        </h2>
+      </div>
+      <div class="description">
+        <p>Welcome, friend :)</p>
+        <p>This web service was intended as a handy way to collect and analyse information about repetitive,
+        time consuming activities in cloud. How much time do you spend on work during a month?
+        Or on shopping routine?</p>
+        <p>Project is under development. Feel free to visit my Github repos if you have an idea or find a bug.</p>
+      </div>
+      <div class="links d-flex justify-content-around">
         <a
-          href="https://nuxtjs.org/"
+          href="https://github.com/MontolioV/Timeman_frontend"
           target="_blank"
-          class="button--green">Documentation</a>
+          class="button--grey">Frontend repo</a>
         <a
-          href="https://github.com/nuxt/nuxt.js"
+          href="https://github.com/MontolioV/Timeman_backend"
           target="_blank"
-          class="button--grey">GitHub</a>
+          class="button--green">Backend repo</a>
       </div>
     </div>
   </section>
 </template>
 
 <script>
-import Logo from '~/components/Logo';
-
-export default {
-  components: {
-    Logo,
-  },
-};
+export default {};
 </script>
 
-<style>
+<style lang="scss">
 .container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   text-align: center;
 }
 
@@ -58,7 +58,23 @@ export default {
   padding-bottom: 15px;
 }
 
+.titles {
+  height: 100vh;
+}
+
+.description {
+  max-width: 500px;
+  p {
+    font-size: 18px;
+  }
+}
+
 .links {
   padding-top: 15px;
+  padding-bottom: 100px;
+  a {
+    font-weight: 300;
+    font-size: 22px;
+  }
 }
 </style>

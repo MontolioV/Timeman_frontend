@@ -1,6 +1,12 @@
 # Timeman_frontend
 
-Frontend for Timeman project. 
+Vue/Nuxt frontend for Timeman project. 
+
+- Auth0 based security.
+
+- Bootstrap based UI. 
+
+[Backend repo](https://github.com/MontolioV/Timeman_backend)
 
 ## Build Setup
 
