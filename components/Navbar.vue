@@ -1,41 +1,37 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <nuxt-link 
-      :to="{name:'index'}"
-      class="navbar-brand">Timeman</nuxt-link>
+  <b-navbar 
+    toggleable="md"
+    type="dark"
+    variant="dark">
+    <b-navbar-toggle target="nav_collapse"/>
+    <b-navbar-brand :to="{name:'index'}">Timeman</b-navbar-brand>
+    <b-collapse 
+      id="nav_collapse" 
+      is-nav>
+      <b-navbar-nav>
+        <b-nav-item 
+          :active="$route.name === 'timers'"
+          :to="{name:'timers'}">Timers</b-nav-item>
+      </b-navbar-nav>
 
-    <div 
-      id="navbarRouting"
-      class="collapse navbar-collapse order-1">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-          <nuxt-link
-            :to="{name:'timers'}"
-            class="nav-link">Timers</nuxt-link>
-        </li>
-      </ul>
-    </div>
-    <div
-      id="navbarSpacer"
-      class="collapse navbar-collapse order-2"/>
-    <div
-      id="navbarLogin"
-      class="collapse navbar-collapse order-3">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item active">
-          <p style="color: red">{{ isLogged }}</p>
-        </li>
-        <li class="nav-item active">
-          <button
-            @click="login">Login</button>
-        </li>
-        <li class="nav-item active">
-          <button
-            @click="logout">Logout</button>
-        </li>
-      </ul>
-    </div>
-  </nav>
+      <!-- Right aligned nav items -->
+      <b-navbar-nav class="ml-auto">
+        <b-nav-item-dropdown 
+          v-if="isLogged" 
+          right>
+          <!-- Using button-content slot -->
+          <template slot="button-content">
+            {{ $auth.user.nickname }}
+          </template>
+          <b-dropdown-item @click="logout">Logout</b-dropdown-item>
+        </b-nav-item-dropdown>
+        <b-nav-item
+          v-else
+          right
+          @click="login">Login</b-nav-item>
+      </b-navbar-nav>
+    </b-collapse>
+  </b-navbar>
 </template>
 
 <script>
