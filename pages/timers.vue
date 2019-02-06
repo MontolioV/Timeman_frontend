@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex';
+import { mapGetters } from 'vuex';
 import TimersList from '../components/timeInterval/TimersList';
 import TimeIntervalStarter from '../components/timeInterval/TimerMaker';
 export default {
@@ -18,13 +18,10 @@ export default {
       timeIntervals: 'Intervals/getIntervals',
     }),
   },
-  created() {
-    this.fetchTimeIntervals();
-  },
-  methods: {
-    ...mapActions({
-      fetchTimeIntervals: 'Intervals/fetchTimeIntervals',
-    }),
+  watchQuery: ['tags'],
+  asyncData({ store, route }) {
+    store.dispatch('Intervals/fetchTimeIntervals', route.query);
+    return {};
   },
 };
 </script>

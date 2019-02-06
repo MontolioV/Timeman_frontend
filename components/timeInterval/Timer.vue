@@ -3,34 +3,35 @@
     :class="{ 'timer-stopped': !!timeInterval.end }"
     class="timer-card d-flex flex-column justify-content-between">
     <div class="timer-info">
-      <h4
-        v-if="!timeInterval.end"
-        class="text-primary">Running</h4>
-      <h4
-        v-else
-        class="text-secondary">Stopped</h4>
+      <div class="d-flex justify-content-between">
+        <h4
+          v-if="!timeInterval.end"
+          class="text-primary">Running</h4>
+        <h4
+          v-else
+          class="text-secondary">Stopped</h4>
+        <b-button
+          variant="danger"
+          @click="deleteThisTimer">
+          <font-awesome-icon icon="trash-alt" />
+        </b-button>
+      </div>
       <p>Started at {{ startDate }}</p>
       <p v-if="timeInterval.end">Stopped at {{ endDate }}</p>
       <p>Duration {{ timePast }}</p>
     </div>
     <div class="timer-tags d-flex flex-wrap justify-content-between">
-      <b-button 
+      <nuxt-link
         v-for="(tag,idx) of timeInterval.tags"
         :key="timeInterval._id+tag+idx"
-        variant="outline-secondary"
-        size="sm"
-        class="tag-btn"
-        @click="tagRouting(tag)">{{ tag }}</b-button>
+        :to="{ name: 'timers', query: { tags: tag }}"
+        class="tag-btn btn btn-outline-secondary btn-sm">{{ tag }}</nuxt-link>
     </div>
     <b-button
       v-if="!timeInterval.end"
       :block="true"
       variant="success"
       @click="stopThisTimer">Stop timer</b-button>
-    <b-button
-      :block="true"
-      variant="danger"
-      @click="deleteThisTimer">Delete timer</b-button>
   </div>
 </template>
 
@@ -68,9 +69,6 @@ export default {
       closeInterval: 'Intervals/closeInterval',
       deleteInterval: 'Intervals/deleteInterval',
     }),
-    tagRouting(tag) {
-      this.$router.push({ path: 'timers', query: { tag: tag } });
-    },
     stopThisTimer() {
       this.closeInterval(this.timeInterval._id);
     },
