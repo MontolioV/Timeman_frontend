@@ -49,6 +49,7 @@ module.exports = {
     // '@nuxtjs/router'
     '@nuxtjs/auth',
     'nuxt-fontawesome',
+    '@nuxtjs/style-resources',
   ],
   /*
   ** Axios module configuration
@@ -83,6 +84,10 @@ module.exports = {
     resetOnError: true,
     rewriteRedirects: true,
     plugins: ['~/plugins/auth.js'],
+  },
+
+  styleResources: {
+    scss: ['~/assets/css/scss/variables.scss'],
   },
 
   fontawesome: {

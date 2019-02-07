@@ -5,7 +5,8 @@
         v-b-modal.timerStarterModal
         :block="true"
         size="lg"
-        variant="primary">Start new timer</b-btn>
+        variant="primary" 
+        class="create-timer-btn">Start new timer</b-btn>
 
       <!-- Modal Component -->
       <b-modal 
@@ -58,5 +59,9 @@ export default {
 <style scoped>
 .timer-starter {
   margin: 10px;
+}
+.create-timer-btn {
+  font-size: 24px;
+  height: 80px;
 }
 </style>

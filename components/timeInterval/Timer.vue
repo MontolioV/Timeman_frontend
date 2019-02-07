@@ -30,6 +30,7 @@
     <b-button
       v-if="!timeInterval.end"
       :block="true"
+      class="stop-btn"
       variant="success"
       @click="stopThisTimer">Stop timer</b-button>
   </div>
@@ -114,13 +115,6 @@ export default {
     background: #f5f5f5;
     border: 2px solid gray;
   }
-  .timer-info {
-  }
-  .timer-tags {
-  }
-  .tag-btn {
-    margin: 3px;
-  }
   &:hover {
     font-weight: bold;
     border: 2px solid #72c0fa;
@@ -128,6 +122,16 @@ export default {
       background: #f5f5f5;
       border: 2px solid #5d5d5d;
     }
+  }
+  .timer-info {
+  }
+  .timer-tags {
+  }
+  .tag-btn {
+    margin: 3px;
+  }
+  .stop-btn {
+    margin-top: 5px;
   }
 }
 </style>

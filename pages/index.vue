@@ -1,18 +1,18 @@
 <template>
-  <section class="container d-flex flex-column align-items-center justify-content-center">
-    <div>
-      <div class="titles d-flex flex-column align-items-center justify-content-center">
-        <h1
-          class="title">
-          Timeman
-        </h1>
-        <h2 class="subtitle">
-          for time management
-        </h2>
-      </div>
-      <div class="description">
+  <section class="d-flex flex-column align-items-center justify-content-center text-center">
+    <section class="tagline align-self-stretch full-h d-flex flex-column justify-content-center">
+      <h1
+        class="title text-base">
+        Timeman
+      </h1>
+      <h2 class="subtitle text-base">
+        for time management
+      </h2>
+    </section>
+    <section class="description full-h d-flex flex-column justify-content-center">
+      <div>
         <p>Welcome, friend :)</p>
-        <p>This web service was intended as a handy way to collect and analyse information about repetitive,
+        <p class="text-justify">This web service was intended as a handy way to collect and analyse information about repetitive,
         time consuming activities in cloud. How much time do you spend on work during a month?
         Or on shopping routine?</p>
         <p>Project is under development. Feel free to visit my Github repos if you have an idea or find a bug.</p>
@@ -27,7 +27,7 @@
           target="_blank"
           class="button--green">Backend repo</a>
       </div>
-    </div>
+    </section>
   </section>
 </template>
 
@@ -36,45 +36,78 @@ export default {};
 </script>
 
 <style lang="scss">
-.container {
-  text-align: center;
+.full-h {
+  min-height: 100vh;
 }
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
+.tagline {
+  background-color: #fff1dc;
+  background-image: url('/img/sand-clock-vertical.jpg');
+  background-size: cover;
+  @media screen and (orientation: landscape or (min-width: $tablet-horizontal-min-width)) {
+    background-image: url('/img/sand-clock-horizontal.jpg');
+  }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
+  .text-base {
+    background: rgba(17, 8, 4, 0.6);
 
-.titles {
-  height: 100vh;
+    @media screen and (min-width: $tablet-horizontal-min-width) {
+      background: linear-gradient(
+        to right,
+        rgba(39, 19, 7, 0) 20%,
+        rgba(39, 19, 7, 0.4) 30%,
+        rgba(17, 8, 4, 0.6) 40%,
+        rgba(17, 8, 4, 0.6) 60%,
+        rgba(39, 19, 7, 0.4) 70%,
+        rgba(39, 19, 7, 0) 80%
+      );
+    }
+  }
+  .title {
+    font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
+      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+      sans-serif;
+    display: block;
+    font-weight: 300;
+    font-size: 60px;
+    color: #c5dbf2;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    @media screen and (min-width: $tablet-min-width) {
+      font-size: 80px;
+    }
+    @media screen and (min-width: $hd-min-width) {
+      font-size: 100px;
+    }
+  }
+
+  .subtitle {
+    font-weight: 300;
+    font-size: 30px;
+    color: #9db2c0;
+    word-spacing: 5px;
+    padding-bottom: 15px;
+    @media screen and (min-width: $tablet-min-width) {
+      font-size: 37px;
+    }
+    @media screen and (min-width: $hd-min-width) {
+      font-size: 42px;
+    }
+  }
 }
 
 .description {
   max-width: 500px;
+  padding: 50px 20px;
   p {
     font-size: 18px;
   }
-}
-
-.links {
-  padding-top: 15px;
-  padding-bottom: 100px;
-  a {
-    font-weight: 300;
-    font-size: 22px;
+  .links {
+    padding-top: 15px;
+    a {
+      font-weight: 300;
+      font-size: 22px;
+    }
   }
 }
 </style>
