@@ -12,6 +12,9 @@
         <b-nav-item 
           :active="$route.name === 'timers'"
           :to="{name:'timers'}">Timers</b-nav-item>
+        <b-nav-item
+          :active="$route.name === 'report'"
+          :to="{name:'report'}">Report</b-nav-item>
       </b-navbar-nav>
 
       <!-- Right aligned nav items -->

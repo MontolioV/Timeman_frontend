@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import auth0 from '~/assets/auth0Impl';
+import auth0 from '~/assets/js/auth0Impl';
 
 export default {
   name: 'AuthCallback',

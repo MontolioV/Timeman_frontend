@@ -4,7 +4,7 @@
     @keypress.enter="addTag">
     <b-form-group
       id="tagInputGroup"
-      label="New tag:"
+      :label="formLabel"
       label-for="tagInput"
       description="No duplicates allowed.">
       <b-form-input 
@@ -14,7 +14,7 @@
         placeholder="Type tag and press enter"/>
     </b-form-group>
     <h6>Tags:</h6>
-    <div class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap justify-content-between">
       <div
         v-for="(tag,idx) of tagsArr" 
         :key="idx+tag" 
@@ -33,7 +33,6 @@
       </div>
     </div>
   </b-form>
-
 </template>
 
 <script>
@@ -42,6 +41,10 @@ export default {
   props: {
     tagsArr: {
       type: Array,
+      required: true,
+    },
+    formLabel: {
+      type: String,
       required: true,
     },
   },

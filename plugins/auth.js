@@ -1,4 +1,4 @@
-import auth0Impl from '~/assets/auth0Impl';
+import auth0Impl from '~/assets/js/auth0Impl';
 
 export default function({ app }) {
   app.$auth.logoutAuth0 = () => {

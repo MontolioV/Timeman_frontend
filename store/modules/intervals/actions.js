@@ -6,8 +6,11 @@ import {
 } from './mutation-types';
 
 export default {
-  async fetchTimeIntervals({ commit }, query) {
-    const response = await this.$axios.get('/rs/intervals', { params: query });
+  async fetchTimeIntervals({ commit }, queryOptions) {
+    const response = await this.$axios.post(
+      '/rs/intervals/search',
+      queryOptions
+    );
     const intervalsFromBackEnd = response.data;
     commit(SET_INTERVALS, intervalsFromBackEnd);
   },

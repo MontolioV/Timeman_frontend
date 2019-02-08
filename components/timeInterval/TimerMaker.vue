@@ -13,7 +13,9 @@
         id="timerStarterModal" 
         title="New timer settings">
 
-        <TagManager :tags-arr="newTimeInterval.tags"/>
+        <TagManager 
+          :tags-arr="newTimeInterval.tags" 
+          form-label="New tag:"/>
 
         <div
           slot="modal-footer"
@@ -31,7 +33,7 @@
 </template>
 
 <script>
-import TagManager from '../TagManager';
+import TagManager from '../tag/TagManager';
 import moment from 'moment';
 import { mapActions } from 'vuex';
 export default {
@@ -42,8 +44,8 @@ export default {
       newTimeInterval: {
         tags: [
           moment().format('YYYY'),
-          moment().format('MM.YYYY'),
-          moment().format('DD.MM.YYYY'),
+          moment().format('YYYY.MM'),
+          moment().format('YYYY.MM.DD'),
         ],
       },
     };
