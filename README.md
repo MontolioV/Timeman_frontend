@@ -18,7 +18,7 @@ $ npm install
 $ npm run dev
 
 # build for production and launch server
-$ npm run build
+$ PROD_URL=/*replace with production url*/ npm run build
 $ npm start
 
 # generate static project

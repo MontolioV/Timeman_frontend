@@ -56,8 +56,8 @@ module.exports = {
   */
   axios: {
     // See https://github.com/nuxt-community/axios-module#options
-    baseURL: 'http://localhost:3000',
-    browserBaseURL: 'http://localhost:3000',
+    baseURL: process.env.PROD_URL || 'http://localhost:3000',
+    browserBaseURL: process.env.PROD_URL || 'http://localhost:3000',
     proxy: true,
   },
   proxy: {
@@ -130,6 +130,13 @@ module.exports = {
           onBuildEnd: [],
         })
       );
+    },
+  },
+
+  watchers: {
+    webpack: {
+      aggregateTimeout: 300,
+      poll: 1000,
     },
   },
 };
