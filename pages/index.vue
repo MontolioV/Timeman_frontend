@@ -64,9 +64,7 @@ export default {};
     }
   }
   .title {
-    font-family: 'Quicksand', 'Source Sans Pro', -apple-system,
-      BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
-      sans-serif;
+    font-family: 'Quicksand', sans-serif;
     display: block;
     font-weight: 300;
     font-size: 60px;
@@ -82,6 +80,7 @@ export default {};
   }
 
   .subtitle {
+    font-family: 'Quicksand', sans-serif;
     font-weight: 300;
     font-size: 30px;
     color: #9db2c0;
