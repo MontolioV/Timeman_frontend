@@ -23,7 +23,7 @@
         <div 
           v-if="showGuide" 
           class="h-100 row justify-content-center align-content-center">
-          <h1>guide</h1>
+          <h2>Add filtering tags and make report</h2>
         </div>
         <div
           v-else-if="!reportIsReady"
