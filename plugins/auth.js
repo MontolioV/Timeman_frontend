@@ -3,7 +3,7 @@ import auth0Impl from '~/assets/js/auth0Impl';
 export default function({ app }) {
   app.$auth.logoutAuth0 = () => {
     app.$auth.logout();
-    auth0Impl.logout();
+    auth0Impl.logout(app.$axios.defaults.baseURL);
   };
 
   // TODO: 25.01.19 Not all requests must contain auth token.

@@ -12,8 +12,8 @@ class Auth0Impl {
     scope: 'openid profile email',
   });
 
-  logout() {
-    this.webAuth.logout();
+  logout(returnTo) {
+    this.webAuth.logout({ returnTo });
   }
 
   checkForEmailError() {
